@@ -27,3 +27,7 @@
   (let [max-count (inc (count k-order))]
     (sort-by (fn [[k _]] (or (index-of k-order k) max-count))
              components)))
+
+(defn ->edn-str ^String [v]
+  (binding [*print-level* nil]
+    (pr-str v)))
