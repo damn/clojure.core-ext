@@ -31,3 +31,8 @@
 (defn ->edn-str ^String [v]
   (binding [*print-level* nil]
     (pr-str v)))
+
+(defn truncate ^String [s limit]
+  (if (> (count s) limit)
+    (str (subs s 0 limit) "...")
+    s))
