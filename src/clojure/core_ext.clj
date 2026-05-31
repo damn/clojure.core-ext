@@ -124,3 +124,13 @@
                             (assert avar form)
                             avar)
                           form)))))
+
+(defn require-namespaces! [namespaces]
+  (run! require namespaces))
+
+(defn run-executions! [executions]
+  (doseq [[f & params] executions]
+    (apply f params)))
+
+(defn run-executions-from-edn! [path]
+  (run-executions! (edn-resource path)))
